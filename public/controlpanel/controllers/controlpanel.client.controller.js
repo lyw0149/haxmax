@@ -50,12 +50,10 @@ controller('commandController', ['$scope', function($scope) {
 controller('missionsController', ['$scope', function($scope) {
 
 }]).
-controller('devicesController', ['$scope', '$http', function($scope, $http) {
+controller('devicesController', ['socket','$scope', '$http', function(socket,$scope, $http) {
 	$scope.errorMsg = "";
 	getDevice();
-	
-	
-
+	//click function
 	$scope.addDevice = function() {
 		var addingDevice = {
 			serialNumber: $scope.serialNumber,
@@ -105,6 +103,15 @@ controller('devicesController', ['$scope', '$http', function($scope, $http) {
 				//console.log($scope['device])
 			});
 	}
+	
+	//socket part
+	
+          console.log("connected"); 
+           getDevice();
+            socket.on("refreshDevice",function(){
+                getDevice();
+            })
+     
 
 }]).
 controller('applicationsController', ['$scope', function($scope) {

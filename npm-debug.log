@@ -1,0 +1,146 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/bin/node',
+1 verbose cli   '/mnt/shared/sbin/npm',
+1 verbose cli   'install',
+1 verbose cli   'bower-',
+1 verbose cli   'g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.28
+4 warn package.json MEAN@0.0.7 No description
+5 warn package.json MEAN@0.0.7 No repository field.
+6 warn package.json MEAN@0.0.7 No README data
+7 warn package.json mongodb@2.1.18 No README data
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'bower-', null ]
+10 verbose cache add name=undefined spec="bower-" args=["bower-",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'bower-',
+11 verbose parsed url   path: 'bower-',
+11 verbose parsed url   href: 'bower-' }
+12 verbose cache add [ 'g', null ]
+13 verbose cache add name=undefined spec="g" args=["g",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'g',
+14 verbose parsed url   path: 'g',
+14 verbose parsed url   href: 'g' }
+15 silly lockFile 4cd0b978-bower bower-
+16 verbose lock bower- /home/ubuntu/.npm/4cd0b978-bower.lock
+17 silly lockFile 54fd1711-g g
+18 verbose lock g /home/ubuntu/.npm/54fd1711-g.lock
+19 silly lockFile 4cd0b978-bower bower-
+20 silly lockFile 4cd0b978-bower bower-
+21 silly lockFile 54fd1711-g g
+22 silly lockFile 54fd1711-g g
+23 verbose addNamed [ 'bower-', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile d55e3f84-bower bower-@
+26 verbose lock bower-@ /home/ubuntu/.npm/d55e3f84-bower.lock
+27 verbose addNamed [ 'g', '' ]
+28 verbose addNamed [ null, '*' ]
+29 silly lockFile 8b047e1f-g g@
+30 verbose lock g@ /home/ubuntu/.npm/8b047e1f-g.lock
+31 silly addNameRange { name: 'bower-', range: '*', hasData: false }
+32 verbose request where is /bower-
+33 verbose request registry https://registry.npmjs.org/
+34 verbose request id 9fec62f97dd2064a
+35 verbose url raw /bower-
+36 verbose url resolving [ 'https://registry.npmjs.org/', './bower-' ]
+37 verbose url resolved https://registry.npmjs.org/bower-
+38 verbose request where is https://registry.npmjs.org/bower-
+39 info trying registry request attempt 1 at 07:10:11
+40 http GET https://registry.npmjs.org/bower-
+41 silly addNameRange { name: 'g', range: '*', hasData: false }
+42 verbose request where is /g
+43 verbose request registry https://registry.npmjs.org/
+44 verbose url raw /g
+45 verbose url resolving [ 'https://registry.npmjs.org/', './g' ]
+46 verbose url resolved https://registry.npmjs.org/g
+47 verbose request where is https://registry.npmjs.org/g
+48 info trying registry request attempt 1 at 07:10:11
+49 http GET https://registry.npmjs.org/g
+50 http 200 https://registry.npmjs.org/g
+51 silly registry.get cb [ 200,
+51 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+51 silly registry.get     etag: '"8AYIUDSUHLGXZT7X52XKA2O0S"',
+51 silly registry.get     'content-type': 'application/json',
+51 silly registry.get     'cache-control': 'max-age=300',
+51 silly registry.get     'content-length': '6821',
+51 silly registry.get     'accept-ranges': 'bytes',
+51 silly registry.get     date: 'Sat, 30 Apr 2016 07:10:12 GMT',
+51 silly registry.get     via: '1.1 varnish',
+51 silly registry.get     age: '0',
+51 silly registry.get     connection: 'keep-alive',
+51 silly registry.get     'x-served-by': 'cache-hkg6824-HKG',
+51 silly registry.get     'x-cache': 'MISS',
+51 silly registry.get     'x-cache-hits': '0',
+51 silly registry.get     'x-timer': 'S1462000211.471761,VS0,VE909',
+51 silly registry.get     vary: 'Accept-Encoding' } ]
+52 http 404 https://registry.npmjs.org/bower-
+53 silly registry.get cb [ 404,
+53 silly registry.get   { 'content-type': 'application/json',
+53 silly registry.get     'cache-control': 'max-age=0',
+53 silly registry.get     'content-length': '2',
+53 silly registry.get     'accept-ranges': 'bytes',
+53 silly registry.get     date: 'Sat, 30 Apr 2016 07:10:12 GMT',
+53 silly registry.get     via: '1.1 varnish',
+53 silly registry.get     age: '0',
+53 silly registry.get     connection: 'keep-alive',
+53 silly registry.get     'x-served-by': 'cache-hkg6821-HKG',
+53 silly registry.get     'x-cache': 'MISS',
+53 silly registry.get     'x-cache-hits': '0',
+53 silly registry.get     'x-timer': 'S1462000211.464881,VS0,VE919',
+53 silly registry.get     vary: 'Accept-Encoding' } ]
+54 silly addNameRange number 2 { name: 'g', range: '*', hasData: true }
+55 silly addNameRange versions [ 'g',
+55 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.0.4', '1.0.5', '2.0.0' ] ]
+56 verbose addNamed [ 'g', '2.0.0' ]
+57 verbose addNamed [ '2.0.0', '2.0.0' ]
+58 silly lockFile 228a2625-g-2-0-0 g@2.0.0
+59 verbose lock g@2.0.0 /home/ubuntu/.npm/228a2625-g-2-0-0.lock
+60 silly lockFile d55e3f84-bower bower-@
+61 silly lockFile d55e3f84-bower bower-@
+62 silly lockFile 27b4bcd3-registry-npmjs-org-g-g-2-0-0-tgz https://registry.npmjs.org/g/-/g-2.0.0.tgz
+63 verbose lock https://registry.npmjs.org/g/-/g-2.0.0.tgz /home/ubuntu/.npm/27b4bcd3-registry-npmjs-org-g-g-2-0-0-tgz.lock
+64 verbose addRemoteTarball [ 'https://registry.npmjs.org/g/-/g-2.0.0.tgz',
+64 verbose addRemoteTarball   '7a77ca0d66b65b206ce1d362428b4b8ee6b3a420' ]
+65 info retry fetch attempt 1 at 07:10:12
+66 verbose fetch to= /tmp/npm-3535-4C70jY3s/registry.npmjs.org/g/-/g-2.0.0.tgz
+67 http GET https://registry.npmjs.org/g/-/g-2.0.0.tgz
+68 http 200 https://registry.npmjs.org/g/-/g-2.0.0.tgz
+69 silly lockFile 27b4bcd3-registry-npmjs-org-g-g-2-0-0-tgz https://registry.npmjs.org/g/-/g-2.0.0.tgz
+70 silly lockFile 27b4bcd3-registry-npmjs-org-g-g-2-0-0-tgz https://registry.npmjs.org/g/-/g-2.0.0.tgz
+71 silly lockFile 228a2625-g-2-0-0 g@2.0.0
+72 silly lockFile 228a2625-g-2-0-0 g@2.0.0
+73 silly lockFile 8b047e1f-g g@
+74 silly lockFile 8b047e1f-g g@
+75 error 404 Not Found
+75 error 404
+75 error 404 'bower-' is not in the npm registry.
+75 error 404 You should bug the author to publish it
+75 error 404 It was specified as a dependency of 'MEAN'
+75 error 404
+75 error 404 Note that you can also install from a
+75 error 404 tarball, folder, or http url, or git url.
+76 error System Linux 4.2.0-c9
+77 error command "/nix/store/9vkhrpycs37cl5i8pywqkdz22773bybf-nodejs-0.10.38/bin/node" "/mnt/shared/sbin/npm" "install" "bower-" "g"
+78 error cwd /home/ubuntu/workspace
+79 error node -v v0.10.28
+80 error npm -v 1.4.28
+81 error code E404
+82 verbose exit [ 1, true ]

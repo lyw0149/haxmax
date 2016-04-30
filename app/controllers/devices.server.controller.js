@@ -77,9 +77,9 @@ exports.getDevice = function(req, res, next) {
                     console.err(err);
                     throw err;
                 }
-                console.log(count)
+                
                 var mCount = {};
-                for (var i = 0; i < count.length; count++) {
+                for (var i = 0; i < count.length; i++) {
                     switch (count[i]._id) {
                         case 'online':
                             mCount.online = count[i].count;
@@ -98,11 +98,11 @@ exports.getDevice = function(req, res, next) {
                             // code
                     }
                 }
-                mCount.online = mCount.online || 0;
-                mCount.offline = mCount.offline || 0;
-                mCount.available = mCount.available || 0;
-                mCount.onair = mCount.onair || 0;
-
+                mCount.online = mCount.online ? mCount.online: 0;
+                mCount.offline = mCount.offline ? mCount.offline: 0;
+                mCount.available = mCount.available ? mCount.available :0;
+                mCount.onair = mCount.onair ? mCount.onair: 0;
+                //console.log(mCount)
                 res.json({
                     count: mCount,
                     device: device

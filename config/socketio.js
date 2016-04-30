@@ -38,6 +38,7 @@ module.exports = function(server, io, mongoStore) {
             require('../app/controllers/web.socketio.server.controller')(io, socket);
     	    
     	}else{
+    	    //device : registration later
     	    console.log("Device connected");
     	    require('../app/controllers/device.socketio.server.controller')(io, socket);
     	    

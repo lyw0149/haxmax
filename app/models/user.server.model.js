@@ -52,6 +52,10 @@ var UserSchema = new Schema({
 	permission : {
 		type: Number,
 		default: 0
+	},
+	socketID : {
+		type : String,
+		default : ""
 	}
 });
 

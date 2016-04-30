@@ -52,9 +52,9 @@ var DeviceSchema = new Schema({
 		type :Number,
 		default: -1
 	},
-	socket: {
+	socketID: {
 		type: String,
-		default:0
+		default:""
 	}
 });
 

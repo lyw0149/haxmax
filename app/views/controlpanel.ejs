@@ -441,7 +441,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="controlpanel/skeleton/dist/js/app.min.js"></script>
     <!-- Select2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+`   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
     <!-- InputMask -->
     <script src="controlpanel/skeleton/plugins/input-mask/jquery.inputmask.js"></script>
     <script src="controlpanel/skeleton/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
@@ -472,10 +472,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
 
 
-    <!-- Load the example module -->
+    <!-- Load the controlpanel module -->
     <script type="text/javascript" src="/controlpanel/controlpanel.client.module.js"></script>
     <script type="text/javascript" src="/controlpanel/controllers/controlpanel.client.controller.js"></script>
     <script type="text/javascript" src="/controlpanel/config/controlpanel.client.routes.js"></script>
+    <script type="text/javascript" src="/controlpanel/service/socket.client.service.js"></script>
 
     <!-- Load the users module -->
     <script type="text/javascript" src="/users/users.client.module.js"></script>
@@ -487,10 +488,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=aa78ad6b214a1a7979cfac54e7b29fa8"></script>
     <script type="text/javascript" src="/lib/socket.io-client/socket.io.js"></script>
     <script>
-        var socket = io();
-        socket.on('connect',function(){
-           console.log("connected"); 
-        });
+        // var socket = io();
+        // socket.on('connect',function(){
+        //   console.log("connected"); 
+           
+        //     socket.on("refreshDevice",function(){
+        //         console.log("refresh Device");
+        //     })
+        // });
+        
+       
         
     </script>
     <script>
