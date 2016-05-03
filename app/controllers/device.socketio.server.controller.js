@@ -3,7 +3,7 @@
 
 var Device = require("mongoose").model("Device");
 var User = require("mongoose").model("User");
-
+var ObjectId = require('mongodb').ObjectID;
 // Create the chat configuration
 module.exports = function(io, socket) {
     socket.on('disconnect', function() {
@@ -15,31 +15,33 @@ module.exports = function(io, socket) {
     socket.on('req_auth', function(sockData) {
         if (sockData.DeviceID) {
             // console.log("receive from : " + sockData.DeviceID);
-            Device.find({
+            Device.findOne({
                 serialNumber: sockData.DeviceID
             }).exec(function(err, deviceData) {
                 if (err) {
                     //close socket
-                    sendError(socket, "connection refused.")
+                    sendError(socket, "connection refused. ERR : [DB]")
                     socket.disconnect();
                 }
                 else {
-                    if (deviceData.length == 1) {
+                    console.log(deviceData.model)
+                    if (deviceData) {
                         socket.emit('res_auth', {
                                 resultCode: "success"
                             });
                             //refresh device state and socket id
                         socket.DeviceID = sockData.DeviceID;
                         updateDevice(socket.DeviceID, "online", socket.id);
-
+                        
                         getUserSocketID(deviceData.userID, function(userSocketID) {
                             io.to(userSocketID).emit("refreshDevice", "");
                             socket.userSocketID = userSocketID;
+                            console.log(deviceData.userID)
                         })
                     }
                     else {
                         //close.socket
-                        sendError(socket, "connection refused.")
+                        sendError(socket, "connection refused. Cannot find device Data")
                         socket.disconnect();
                     }
 
@@ -78,15 +80,18 @@ function sendError(socket, message) {
 
 
 function getUserSocketID(userID, callback) {
+    
     var query = {
-        userID: userID
+        _id: ObjectId(userID)
     }
     User.findOne(query).exec(function(err, doc) {
         if (err) {
             console.log(err);
         }
         if (typeof(callback) === "function") {
+            console.log(doc.socketID)
             callback(doc.socketID);
+           
         }
     });
 }

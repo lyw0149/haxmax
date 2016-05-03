@@ -80,10 +80,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         window.user = <%- JSON.stringify(user) || 'null' %> ;
     </script>
 
-    <div class="layer" ng-show="loading">
+    <div class="layer" ng-show="loading" style = "z-index : 1000">
         <div ng-include="'/controlpanel/views/loader.html'"></div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" id ="appWrapper">
 
         <!-- Main Header -->
         <header class="main-header">
@@ -323,6 +323,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         
         <div class = "content-wrapper" style="width:calc(66.666%-230px);overflow:hidden;">
         	<div id="map" style=""/></div>
+        	<!--<daum-map center="map.center" draggable="map.draggable" level="map.level" map-type-id="map.mapTypeId" events="events">-->
+            
+         <!--   </daum-map>    -->
         </div>
         
         <!--<div class="col-md-6" style="float:left">-->
@@ -357,7 +360,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Drone makes better world.
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2016 <a href="">HAXMAX</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2016 <a href="/">HAXMAX</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -433,7 +436,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
     <!-- REQUIRED JS SCRIPTS -->
-
     <!-- jQuery 2.1.4 -->
     <script src="controlpanel/skeleton/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
@@ -471,57 +473,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
 
-
+    
     <!-- Load the controlpanel module -->
+    <!--<script type="text/javascript" src="/controlpanel/daummap.client.module.js"></script>-->
     <script type="text/javascript" src="/controlpanel/controlpanel.client.module.js"></script>
     <script type="text/javascript" src="/controlpanel/controllers/controlpanel.client.controller.js"></script>
     <script type="text/javascript" src="/controlpanel/config/controlpanel.client.routes.js"></script>
     <script type="text/javascript" src="/controlpanel/service/socket.client.service.js"></script>
+    <script type="text/javascript" src="/controlpanel/service/daum.client.service.js"></script>
+    
 
     <!-- Load the users module -->
     <script type="text/javascript" src="/users/users.client.module.js"></script>
     <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
 
     <!-- Bootstrap AngularJS application -->
+    
     <script type="text/javascript" src="/application.js"></script>
     
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=aa78ad6b214a1a7979cfac54e7b29fa8"></script>
+
     <script type="text/javascript" src="/lib/socket.io-client/socket.io.js"></script>
     <script>
-        // var socket = io();
-        // socket.on('connect',function(){
-        //   console.log("connected"); 
-           
-        //     socket.on("refreshDevice",function(){
-        //         console.log("refresh Device");
-        //     })
-        // });
-        
        
         
     </script>
     <script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new daum.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
-
-		var map = new daum.maps.Map(container, options);
 		
-    	container.style.height = (window.innerHeight-100)+'px';
-    	map.relayout();
-    	
-    	$(window).resize(function(){
-		container.style.height = (window.innerHeight-100)+'px';
-		
-		});
 	</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".js-example-basic-single").select2();
-  });
-</script>
+ <script type="text/javascript">
+//   $(document).ready(function() {
+//     $(".js-example-basic-single").select2();
+//   });
+window.addEventListener("resize", function(){
+    
+    var container = document.getElementById('map');
+        container.style.height = $(window).innerHeight() - 100+'px';
+        
+});
+
+// </script>
+
 
 
 

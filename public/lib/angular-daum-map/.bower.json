@@ -1,0 +1,40 @@
+{
+  "name": "angular-daum-map",
+  "version": "0.1.4",
+  "homepage": "https://github.com/meshkorea/angular-daum-map",
+  "authors": [
+    "hyungsul.kim@meshkorea.net",
+    "chaeeun.lee@meshkorea.net"
+  ],
+  "description": "A directive for AngularJS to wrap DAUM map.",
+  "main": "dist/angular-daum-map.js",
+  "keywords": [
+    "angular",
+    "daum",
+    "map"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "~1.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3"
+  },
+  "_release": "0.1.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.4",
+    "commit": "5ddb028c9c16ec118d82124c22097d4c41c6af13"
+  },
+  "_source": "https://github.com/meshkorea/angular-daum-map.git",
+  "_target": "^0.1.4",
+  "_originalSource": "angular-daum-map",
+  "_direct": true
+}
