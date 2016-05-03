@@ -1,6 +1,6 @@
 // Invoke 'strict' JavaScript mode
 'use strict';
-
+var baseURL = 'https://yw1-leeyangwoo.c9users.io';
 // Create the 'example' controller
 angular.module('controlpanel', []).
 controller('appController', ['$scope', 'Authentication', '$http', '$location', 'daum', function($scope, Authentication, $http, $location, daum) {
@@ -134,7 +134,7 @@ controller('devicesController', ['socket', '$scope', '$http', function(socket, $
 		}
 		$http({
 				method: 'POST',
-				url: 'https://yw1-leeyangwoo.c9users.io/addDevice',
+				url: baseURL+'/addDevice',
 				data: addingDevice,
 				headers: {
 					'Content-Type': 'application/json; charset=utf-8'
@@ -163,7 +163,7 @@ controller('devicesController', ['socket', '$scope', '$http', function(socket, $
 		$scope.$emit('LOAD');
 		$http({
 			method: 'GET',
-			url: 'https://yw1-leeyangwoo.c9users.io/getDevice',
+			url: baseURL+'/getDevice',
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8'
 			}
