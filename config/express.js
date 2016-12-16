@@ -31,7 +31,6 @@ module.exports = function(db) {
 	}));
 	app.use(bodyParser.json());
 	app.use(methodOverride());
-	
 	var mongostore = new MongoStore({
 		db : db.connection.db
 	});

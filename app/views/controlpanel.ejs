@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   |---------------------------------------------------------|
   -->
 
-<body class="hold-transition skin-black sidebar-mini" ng-controller="appController">
+<body class="hold-transition skin-black sidebar-mini" style="overflow-y:hidden" ng-controller="appController">
     <script type="text/javascript">
         window.user = <%- JSON.stringify(user) || 'null' %> ;
     </script>
@@ -494,6 +494,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=aa78ad6b214a1a7979cfac54e7b29fa8"></script>
 
     <script type="text/javascript" src="/lib/socket.io-client/socket.io.js"></script>
+    
     <script>
        
         

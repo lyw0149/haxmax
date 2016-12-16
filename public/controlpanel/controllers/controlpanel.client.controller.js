@@ -69,12 +69,19 @@ controller('mainController', ['$scope', 'Authentication', '$http',
 		$scope.$emit('UNLOAD');
 	}
 ]).
-controller('commandController', ['$scope', function($scope) {
+controller('commandController', ['$scope','socket', function($scope,socket) {
+	
+	$scope.commandTask = function(task) {
+		socket.emit("commandTask", {
+			taskID:task,
+			targetDeviceID:'abcdefg'
+		});
+	}
 
 	$scope.$emit('UNLOAD');
 }]).
 controller('missionsController', ['$scope', '$http','daum', function($scope, $http,daum) {
-	$scope.actionArray = [];
+	$scope.actions = [];
 	$scope.actionTypes = [{
 		'value': 'takeoff',
 		'name': 'takeoff'
@@ -85,11 +92,37 @@ controller('missionsController', ['$scope', '$http','daum', function($scope, $ht
 		'value': 'move',
 		'name': 'move'
 	}];
-
+	
+	daum.onClick(function(mouseEvent) {
+		var latlng = mouseEvent.latLng;
+		$scope.currentAction.lat = latlng.getLat();
+		$scope.currentAction.lng = latlng.getLng();
+	})
+	
+	$scope.initAction = function() {
+		$scope.currentAction.lat = null;
+		$scope.currentAction.lng = null;
+	}
+	
 	$scope.addAction = function() {
 		if ($scope.currentAction.type != '') {
-			var action = angular.copy($scope.currentAction);
-			$scope.actionArray.push(action);
+			if($scope.currentAction.type == 'move'){
+				if($scope.currentAction.lat && $scope.currentAction.lng){
+					var action = angular.copy($scope.currentAction);
+					$scope.actions.push(action);
+				}
+			}else{
+				var action = angular.copy($scope.currentAction);
+				$scope.actions.push(action);
+			}
+		}
+	}
+	
+	$scope.searchCord = function() {
+		if ($scope.currentAction.lat && $scope.currentAction.lng){
+			var lat = angular.copy($scope.currentAction.lat);
+			var lng = angular.copy($scope.currentAction.lng);
+			daum.panTo(lat,lng);
 		}
 	}
 
@@ -107,20 +140,68 @@ controller('missionsController', ['$scope', '$http','daum', function($scope, $ht
 								}else{
 									place = keywordJson.channel.item[0]
 									daum.panTo(place.latitude,place.longitude)
+									console.log(place.latitude,place.longitude)
+									$scope.currentAction.lat = place.latitude;
+									$scope.currentAction.lng = place.longitude;
 								}
 								
 							});
 					}else{
 						place = addrJson.channel.item[0]
-						console.log(place)
 						daum.panTo(place.lat,place.lng)
+						$scope.currentAction.lat = place.latitude;
+						$scope.currentAction.lng = place.longitude;
 					}
-					
 					
 				});
 			$scope.inputAddr = ""
 		}
 	}
+	
+	$scope.addMission = function() {
+		var addingMission = {
+			actions : $scope.actions
+		}
+		$http({
+				method: 'POST',
+				url: baseURL+'/addMission',
+				data: addingMission,
+				header: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			}).success(function(data, status, haeaders, config){
+				if (data) {
+					if (data == 'success') {
+						getMission();
+					}
+					else {
+						$scope.errorMsg = "ERR : " + data;
+					}
+				}
+				else {
+					
+				}
+			}).error(function(data, status, headers, config){
+				console.log(status)
+			})
+	}
+	
+	function getMission() {
+		$scope.$emit('LOAD');
+		$http({
+			method: 'GET',
+			url: baseURL+'/getMission',
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8'
+			}
+		}).success(
+			function(data) {
+				$scope.missions = data.mission;
+				$scope.$emit('UNLOAD');
+				console.log($scope.missions);
+			});
+	}
+	getMission();
 	$scope.$emit('UNLOAD');
 }]).
 controller('devicesController', ['socket', '$scope', '$http', function(socket, $scope, $http) {

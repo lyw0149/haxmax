@@ -4,6 +4,7 @@
 // Configure the 'example' module routes
 angular.module('controlpanel').config(['$routeProvider',
 	function($routeProvider) {
+		console.log("activate route function");
 		$routeProvider.
 		when('/', {
 			templateUrl: 'controlpanel/views/main.controlpanel.client.view.html'

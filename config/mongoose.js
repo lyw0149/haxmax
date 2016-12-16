@@ -10,6 +10,5 @@ module.exports = function() {
 	require('../app/models/device.server.model');
 	require('../app/models/mission.server.model');
 
-
 	return db;
 };
